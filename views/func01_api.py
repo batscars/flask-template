@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import request, jsonify, Blueprint
 from flask.views import MethodView
+from controllers.func01 import Func01
 
 func01_bp = Blueprint("func01_bp", __name__, url_prefix="/func01")
 
@@ -27,7 +28,8 @@ class FunctionView(MethodView):
 
     @staticmethod
     def get_response(**kwargs):
-        ret = dict(code=200, errmsg="ok", data=kwargs)
+        data = Func01(**kwargs).run()
+        ret = dict(code=200, errmsg="ok", data=data)
         return jsonify(**ret)
 
 
