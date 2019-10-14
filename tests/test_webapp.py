@@ -16,3 +16,6 @@ class WebAppTestCase(unittest.TestCase):
         resp_json = json.loads(resp.data)
         self.assertEqual(resp_json["code"], 200)
 
+
+if __name__ == "__main__":
+    unittest.main()
